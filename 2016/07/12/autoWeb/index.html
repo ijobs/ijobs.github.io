@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="鉴于Handlebars.js前端模板的使用,考虑到是不是可以由前端直接实现分页效果,但由于不太清楚前端和后端实现分页的具体区别和优缺点,所以就在知乎上寻求大神们的帮助.
-在论述前端分页和后端分页的优缺点之前,先简单介绍一下Handlebars.js.Handlebars是Javascript一个语义模板库,通过对view和data分离来快速构建web模板.它采用&amp;quot;Logic-less">
+<meta name="description" content="爱生活,爱前端!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端分页和后端分页的优缺点及相关实现">
-<meta property="og:url" content="http://yoursite.com/2016/05/24/page/index.html">
+<meta property="og:title" content="打造一个自动化的前端项目">
+<meta property="og:url" content="http://yoursite.com/2016/07/12/autoWeb/index.html">
 <meta property="og:site_name" content="Ijobs 的二次元">
-<meta property="og:description" content="鉴于Handlebars.js前端模板的使用,考虑到是不是可以由前端直接实现分页效果,但由于不太清楚前端和后端实现分页的具体区别和优缺点,所以就在知乎上寻求大神们的帮助.
-在论述前端分页和后端分页的优缺点之前,先简单介绍一下Handlebars.js.Handlebars是Javascript一个语义模板库,通过对view和data分离来快速构建web模板.它采用&amp;quot;Logic-less">
-<meta property="og:updated_time" content="2016-05-24T06:50:56.234Z">
+<meta property="og:description" content="爱生活,爱前端!">
+<meta property="og:updated_time" content="2016-07-12T10:02:49.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端分页和后端分页的优缺点及相关实现">
-<meta name="twitter:description" content="鉴于Handlebars.js前端模板的使用,考虑到是不是可以由前端直接实现分页效果,但由于不太清楚前端和后端实现分页的具体区别和优缺点,所以就在知乎上寻求大神们的帮助.
-在论述前端分页和后端分页的优缺点之前,先简单介绍一下Handlebars.js.Handlebars是Javascript一个语义模板库,通过对view和data分离来快速构建web模板.它采用&amp;quot;Logic-less">
+<meta name="twitter:title" content="打造一个自动化的前端项目">
+<meta name="twitter:description" content="爱生活,爱前端!">
 
 
 
@@ -114,7 +111,7 @@
   };
 </script>
 
-  <title> 前端分页和后端分页的优缺点及相关实现 | Ijobs 的二次元 </title>
+  <title> 打造一个自动化的前端项目 | Ijobs 的二次元 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +231,7 @@
             
             
               
-                前端分页和后端分页的优缺点及相关实现
+                打造一个自动化的前端项目
               
             
           </h1>
@@ -246,8 +243,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-24T11:49:32+08:00" content="2016-05-24">
-              2016-05-24
+            <time itemprop="dateCreated" datetime="2016-07-12T18:01:14+08:00" content="2016-07-12">
+              2016-07-12
             </time>
           </span>
 
@@ -274,23 +271,7 @@
       
 
       
-        <p>鉴于<a href="http://handlebarsjs.com/" target="_blank" rel="external">Handlebars.js</a>前端模板的使用,考虑到是不是可以由前端直接实现分页效果,但由于不太清楚前端和后端实现分页的具体区别和优缺点,所以就在知乎上寻求大神们的帮助.</p>
-<p>在论述前端分页和后端分页的优缺点之前,先简单介绍一下Handlebars.js.<br><code>Handlebars是Javascript一个语义模板库,通过对view和data分离来快速构建web模板.它采用&quot;Logic-less template&quot;(无逻辑模板)的思路,在加载时被预编译,而不是到了客户端执行到代码时再去编译.这样可以保证模板加载和运行的速度.</code><br><a href="http://www.cnblogs.com/iyangyuan/archive/2013/12/12/3471227.html" target="_blank" rel="external">Js模板引擎handlebars.js实用教程</a></p>
-<p>针对知乎大神们的回答整理了比较满意的答案:</p>
-<h4 id="前后分页的优缺点"><a href="#前后分页的优缺点" class="headerlink" title="前后分页的优缺点"></a>前后分页的优缺点</h4><ul>
-<li><p>对于局部刷新的数据采用前端分页用户体验比较好,比如评论列表,点赞用户列表.</p>
-</li>
-<li><p>对于数据量较大.要求seo的数据页采用后端分页.</p>
-</li>
-<li><p>当然也可以两种模式相结合,比如微博列表加载数据,前10页是Ajax获取分页数据,后10页是后端分页,在前10页上的a标签上也加上src地址利于蜘蛛的抓取,但是禁用锚点链接功能改用click通过Ajax获取数据.</p>
-</li>
-</ul>
-<h4 id="可能更好的实现方式"><a href="#可能更好的实现方式" class="headerlink" title="可能更好的实现方式"></a>可能更好的实现方式</h4><p>PS:分页即列表页先加载300条,但只显示100条,这样反而让分页逻辑混乱了,还要判断分页是不是已经加载过了,而且现在的趋势是”非必要不加载”,下拉更新.图片滚动到了才加载,只要检测到用户需要这部分数据才去加载,多省宽带,所以前端分页基本上没有可以一提的优点,反而让程序逻辑多绕几个圈.</p>
-<p>以上的两个回答,个人感觉都比较认可,当然在项目中是采用前端分页还是后端分页,甚至是摈弃分页而采用”无必要不加载”的下拉更新都是要根据具体的情况来进行选择的.</p>
-<p>以下是我对于以上所述方式的具体实现:</p>
-<p><a href="">前端分页Demo</a></p>
-<p><a href="">非必要不加载,下拉更新Demo</a></p>
-
+        
       
     </div>
 
@@ -314,17 +295,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/19/sass/" rel="next" title="Sass的安装与编译">
-                <i class="fa fa-chevron-left"></i> Sass的安装与编译
+              <a href="/2016/05/24/page/" rel="next" title="前端分页和后端分页的优缺点及相关实现">
+                <i class="fa fa-chevron-left"></i> 前端分页和后端分页的优缺点及相关实现
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/12/autoWeb/" rel="prev" title="打造一个自动化的前端项目">
-                打造一个自动化的前端项目 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -424,7 +401,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前后分页的优缺点"><span class="nav-number">1.</span> <span class="nav-text">前后分页的优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可能更好的实现方式"><span class="nav-number">2.</span> <span class="nav-text">可能更好的实现方式</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
