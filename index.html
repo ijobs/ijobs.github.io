@@ -233,6 +233,330 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/24/page/" itemprop="url">
+                  前端分页和后端分页的优缺点及相关实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-24T11:49:32+08:00" content="2016-05-24">
+              2016-05-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>鉴于<a href="http://handlebarsjs.com/" target="_blank" rel="external">Handlebars.js</a>前端模板的使用,考虑到是不是可以由前端直接实现分页效果,但由于不太清楚前端和后端实现分页的具体区别和优缺点,所以就在知乎上寻求大神们的帮助.</p>
+<p>在论述前端分页和后端分页的优缺点之前,先简单介绍一下Handlebars.js.<br><code>Handlebars是Javascript一个语义模板库,通过对view和data分离来快速构建web模板.它采用&quot;Logic-less template&quot;(无逻辑模板)的思路,在加载时被预编译,而不是到了客户端执行到代码时再去编译.这样可以保证模板加载和运行的速度.</code><br><a href="http://www.cnblogs.com/iyangyuan/archive/2013/12/12/3471227.html" target="_blank" rel="external">Js模板引擎handlebars.js实用教程</a></p>
+<p>针对知乎大神们的回答整理了比较满意的答案:</p>
+<h4 id="前后分页的优缺点"><a href="#前后分页的优缺点" class="headerlink" title="前后分页的优缺点"></a>前后分页的优缺点</h4><ul>
+<li><p>对于局部刷新的数据采用前端分页用户体验比较好,比如评论列表,点赞用户列表.</p>
+</li>
+<li><p>对于数据量较大.要求seo的数据页采用后端分页.</p>
+</li>
+<li><p>当然也可以两种模式相结合,比如微博列表加载数据,前10页是Ajax获取分页数据,后10页是后端分页,在前10页上的a标签上也加上src地址利于蜘蛛的抓取,但是禁用锚点链接功能改用click通过Ajax获取数据.</p>
+</li>
+</ul>
+<h4 id="可能更好的实现方式"><a href="#可能更好的实现方式" class="headerlink" title="可能更好的实现方式"></a>可能更好的实现方式</h4><p>PS:分页即列表页先加载300条,但只显示100条,这样反而让分页逻辑混乱了,还要判断分页是不是已经加载过了,而且现在的趋势是”非必要不加载”,下拉更新.图片滚动到了才加载,只要检测到用户需要这部分数据才去加载,多省宽带,所以前端分页基本上没有可以一提的优点,反而让程序逻辑多绕几个圈.</p>
+<p>以上的两个回答,个人感觉都比较认可,当然在项目中是采用前端分页还是后端分页,甚至是摈弃分页而采用”无必要不加载”的下拉更新都是要根据具体的情况来进行选择的.</p>
+<p>以下是我对于以上所述方式的具体实现:</p>
+<p><a href="">前端分页Demo</a></p>
+<p><a href="">非必要不加载,下拉更新Demo</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/19/sass/" itemprop="url">
+                  Sass的安装与编译
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-19T17:29:26+08:00" content="2016-05-19">
+              2016-05-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>虽然已经有了很多优秀的Sass教程,但还是想记录一下自己学习Sass之初的点滴.</p>
+<h2 id="Sass的安装"><a href="#Sass的安装" class="headerlink" title="Sass的安装"></a>Sass的安装</h2><h3 id="1-安装ruby"><a href="#1-安装ruby" class="headerlink" title="1.安装ruby"></a>1.安装ruby</h3><p>因为sass依赖于ruby环境,所以在安装sass之前必须安装ruby.<br><a href="https://www.ruby-lang.org/zh_cn/downloads/" target="_blank" rel="external">详尽的安装教程</a></p>
+<p>Window下安装ruby,直接下载<a href="">rubyinstaller.exe</a>安装就可以了.(安装非常简单,直接下一步+下一步就可以了!)</p>
+<p>测试ruby是否安装成功:</p>
+<p><code>ruby -v</code></p>
+<p>执行上面的命令,如果可以看到ruby相应的版本号,说明安装成功.</p>
+<h3 id="2-安装sass"><a href="#2-安装sass" class="headerlink" title="2.安装sass"></a>2.安装sass</h3><p>安装完ruby之后,在开始菜单中,找到刚刚安装的ruby,打开Command Prompt with ruby and Rails,如下图所示:</p>
+<p><img src="http://" alt="Command Prompt with ruby and Rails"></p>
+<p>然后直接在命令行中输入下面的命令:</p>
+<p><code>gem install sass</code></p>
+<p>最后<code>sass -v</code>来检测sass是否安装成功.同样,如果看到sass相应的版本号,说明安装成功.</p>
+<p>升级sass版本的命令如下:</p>
+<p><code>gem update sass</code></p>
+<h3 id="3-sass编译"><a href="#3-sass编译" class="headerlink" title="3.sass编译"></a>3.sass编译</h3>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/19/OptimizeImage/" itemprop="url">
+                  前端图片优化技术汇总
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-19T10:18:31+08:00" content="2016-05-19">
+              2016-05-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在知乎上看到一个关于网站图片优化的问题,看到一个叫秦墨鱼的<a href="http://https://www.zhihu.com/question/33309032" target="_blank" rel="external">回答</a>,深深感受到前端知识的深度,也越来越感受到前端的魅力,现在将图片优化的一些技术记录如下:<br>(期待以后的自己也能够跟随前辈们的脚步,建成自己的前端知识库~~)</p>
+<h2 id="前端图片优化方案"><a href="#前端图片优化方案" class="headerlink" title="前端图片优化方案"></a>前端图片优化方案</h2><p>(以淘宝网站来做案例分析)</p>
+<h3 id="1-使用base64编码代替图片"><a href="#1-使用base64编码代替图片" class="headerlink" title="1. 使用base64编码代替图片"></a>1. 使用base64编码代替图片</h3><p>场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面上引用图片总数不多的情况。</p>
+<p><img src="../uploads/OptimizeImage/1.png" alt=""></p>
+<h3 id="2-合并图片sprite-图片精灵"><a href="#2-合并图片sprite-图片精灵" class="headerlink" title="2. 合并图片sprite(图片精灵)"></a>2. 合并图片sprite(图片精灵)</h3><p>场景：将多个页面上用到的背景图片合并成一个大的图片在页面中引用 ，可以有效的较少请求个数。但是合并的大图也不要太大。<br>比如淘宝首页的这个sprite图片</p>
+<p><img src="../uploads/OptimizeImage/2.png" alt=""></p>
+<h3 id="3-图片延迟加载"><a href="#3-图片延迟加载" class="headerlink" title="3. 图片延迟加载"></a>3. 图片延迟加载</h3><p>场景：对应图片比较多的页面，可以考虑通过js来实现图片的延迟加载，先让一部分图片优先请求下来，当用户滚动页面的时候进一步加载图片。<br>我们看一下淘宝首页的实现，你打开chrome控制台，然后滚动页面，就会发现新的滚动就会导致大量图片的新请求</p>
+<p><img src="../uploads/OptimizeImage/3.png" alt=""></p>
+<h3 id="4-使用css、svg、canvas或iconfont代替图片"><a href="#4-使用css、svg、canvas或iconfont代替图片" class="headerlink" title="4. 使用css、svg、canvas或iconfont代替图片"></a>4. 使用css、svg、canvas或iconfont代替图片</h3><p>场景：css方式可以用来绘制相对简单的团来代替图片，一般使用before或者after伪元素来丰富图案的复杂度。使用css,svg,iconfont减少图片尺寸，请求数据少。</p>
+<p><img src="../uploads/OptimizeImage/4.png" alt=""></p>
+<h3 id="5-加载对应尺寸图片"><a href="#5-加载对应尺寸图片" class="headerlink" title="5. 加载对应尺寸图片"></a>5. 加载对应尺寸图片</h3><p>场景：不同终端对同一个图片需求不一样，可以根据终端加载不同的图片来节省没必要的流量 。<br>查看淘宝首页图片的网络加载，会通过<a href="http://baike.baidu.com/link?url=KX0w3g-dLR9BAzRJpdCnzSaeppm6jTq7MS8SkCIbqAPT6wR_A_dNS728Wiuuz4pIfmaA0yIyUfnfHqdntt8T-q" target="_blank" rel="external">cdn技术</a>，加上对应要加载的图片参数，比如60x60,加载需要的尺寸。</p>
+<p><img src="../uploads/OptimizeImage/5.png" alt=""></p>
+<h3 id="6-预加载"><a href="#6-预加载" class="headerlink" title="6. 预加载"></a>6. 预加载</h3><p>场景：默认情况下浏览器会对页面中和当前域名（正在浏览网页的域名）不在同一个域的域名进行预获取，并且缓存结果，这就是隐式的DNS Prefetch。如果想对页面中没有出现的域进行预获取，那么就要使用显示的DNS Prefetch了，也就是使用link标签。<br>我们在查看淘宝网的前端代码可以看到前端加上了dns-prefetch，因为前端静态资源的域名和主域名<a href="http://taobao.com不一致" target="_blank" rel="external">http://taobao.com不一致</a></p>
+<p><img src="../uploads/OptimizeImage/6.png" alt=""></p>
+<h3 id="7-更好的图片格式"><a href="#7-更好的图片格式" class="headerlink" title="7. 更好的图片格式"></a>7. 更好的图片格式</h3><p>场景：使用webp、bpg、sharpP等新图片格式来替代原始格式，这些具有更好的压缩比。<br>我们看淘宝这边，部分图片使用了webp格式，WEBP与JPG相比较，编码速度慢10倍，解码速度慢1.5倍，而绝大部分的网络应用中，图片都是静态文件。</p>
+<p><img src="../uploads/OptimizeImage/7.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/11/FreeBlog/" itemprop="url">
                   Windows 下搭建免费个人博客
                 </a>
@@ -280,43 +604,44 @@
             <p>最近在<a href="http://www.jianshu.com/" target="_blank" rel="external">简书</a>上看到一篇关于创建个人博客的文章 – 5分钟 搭建免费个人博客，于是欣喜若狂，说干就干(嘿嘿，对于我的实干精神还是颇为满意滴。。。)可博主5分钟搞定的事情，15分钟后的我仍一头雾水（心塞中。。。），于是记录下自己的辛酸路程，以便其他的小伙伴参考。(我可是一个乐于助人的小姑凉~~~)</p>
 <h2 id="工具-原料"><a href="#工具-原料" class="headerlink" title="工具/原料"></a>工具/原料</h2><h3 id="Nodejs-amp-amp-Git-for-windows"><a href="#Nodejs-amp-amp-Git-for-windows" class="headerlink" title="Nodejs &amp;&amp; Git for windows"></a><a href="https://nodejs.org/en/" target="_blank" rel="external">Nodejs</a> &amp;&amp; <a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git for windows</a></h3><p>在下载git的过程中可能会遇到下载失败的情况，此时可以在别处寻求<a href="http://download.csdn.net/detail/sdhongjun/9451229" target="_blank" rel="external">下载资源</a>.</p>
 <h2 id="方法-步骤"><a href="#方法-步骤" class="headerlink" title="方法/步骤"></a>方法/步骤</h2><h3 id="1-创建Github域名和空间"><a href="#1-创建Github域名和空间" class="headerlink" title="1. 创建Github域名和空间"></a>1. 创建Github域名和空间</h3><h4 id="1-1-注册"><a href="#1-1-注册" class="headerlink" title="1.1 注册"></a>1.1 注册</h4><p>首先，你需要注册一个<a href="https://github.com/" target="_blank" rel="external">Github</a>账号</p>
-<p><img src="../uploads/freeBlog/1.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/1.png" alt=""></p>
 <h4 id="1-2-创建仓库"><a href="#1-2-创建仓库" class="headerlink" title="1.2 创建仓库"></a>1.2 创建仓库</h4><p>当拥有一个Github账号之后，就可以创建一个仓库（repository）来存储我们即将创建的博客网站，点击首页任意位置出现的New Repository按钮创建仓库,Respository name 中的username.github.io 的username 一定与前面的Owner 一致，记住你的username下面会用到。</p>
-<p><img src="../uploads/freeBlog/2.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/2.png" alt=""></p>
 <p>第一步就这样完成了,是不是很简单啊!</p>
 <h3 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h3><p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo</a>是基于Nodejs的博客框架,安装Hexo之前必须安装Git和Nodejs.</p>
 <h4 id="2-1-安装Git-Git-for-windows"><a href="#2-1-安装Git-Git-for-windows" class="headerlink" title="2.1 安装Git(Git for windows)"></a>2.1 安装Git(Git for windows)</h4><p>直接点击<a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git for windows</a>或<a href="http://download.csdn.net/detail/sdhongjun/9451229" target="_blank" rel="external">下载资源</a>便可进行下载安装.</p>
 <p>测试是否成功安装Git,选中任意文件夹点击右键,如出现下图,则说明Git安装成功.</p>
-<p><img src="../uploads/freeBlog/3.png" alt="git success"></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/3.png" alt="git success"></p>
 <h4 id="2-2-安装Nodejs"><a href="#2-2-安装Nodejs" class="headerlink" title="2.2 安装Nodejs"></a>2.2 安装Nodejs</h4><p>点击<a href="https://nodejs.org/en/" target="_blank" rel="external">Nodejs</a>进行下载安装,参看<a href="http://jingyan.baidu.com/article/fd8044faf2e8af5030137a64.html" target="_blank" rel="external">Nodejs安装图解教程</a>(嘿嘿~~ 下一步 + 下一步 毫无压力哦!)</p>
 <h4 id="2-3-安装Hexo"><a href="#2-3-安装Hexo" class="headerlink" title="2.3 安装Hexo"></a>2.3 安装Hexo</h4><p>Git 和 Nodejs安装成功之后,Hexo的安装也就水到渠成了.</p>
 <p><code>$ npm install hexo-cli -g</code></p>
 <h3 id="3-编写博客及发布"><a href="#3-编写博客及发布" class="headerlink" title="3. 编写博客及发布"></a>3. 编写博客及发布</h3><p>接下来需要用Hexo初始化一个博客,然后更改一些自定义的配置,或者加上自己喜欢的主题,写上第一篇文章,然后发布到自己的个人Github网站上(username.github.io)(嘿嘿~~ 内心是不是有点小激动呢!).</p>
 <h4 id="3-1-创建博客"><a href="#3-1-创建博客" class="headerlink" title="3.1 创建博客"></a>3.1 创建博客</h4><p>新建一个名为blog(只是举个例子啦,当然你有绝对的自由)的文件夹,点击右键选择Git Bash Here,会弹出如下的命令行弹框.</p>
-<p><img src="../uploads/freeBlog/4.png" alt="调出命令行框"></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/4.png" alt="调出命令行框"></p>
 <p>键入如下的命令:</p>
 <p><code>$ hexo init ijobs.github.io</code></p>
 <p>执行成功后,在blog文件夹下会创建出一个名为ijobs.github.io文件夹(当然啦!Hexo的安装命令也是在上面的命令行弹框中执行的)</p>
-<h4 id="3-2-更改配置"><a href="#3-2-更改配置" class="headerlink" title="3.2 更改配置"></a>3.2 更改配置</h4><h5 id="主题的安装"><a href="#主题的安装" class="headerlink" title="主题的安装"></a>主题的安装</h5><p>对于主题你可以选择任意喜欢的,这里以安装next主题为例,当然Hexo也有<a href="https://hexo.io/themes/" target="_blank" rel="external">更多的主题</a>供你选择.<br><a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br><code>$ cd ijobs.github.io
+<h4 id="3-2-更改配置"><a href="#3-2-更改配置" class="headerlink" title="3.2 更改配置"></a>3.2 更改配置</h4><h5 id="主题的安装"><a href="#主题的安装" class="headerlink" title="主题的安装"></a>主题的安装</h5><p>对于主题你可以选择任意喜欢的,这里以安装next主题为例,当然Hexo也有<a href="https://hexo.io/themes/" target="_blank" rel="external">更多的主题</a>供你选择.</p>
+<p><code>$ cd ijobs.github.io
  $ git clone https://github.com/iissnan/hexo-theme-next themes/next</code><br><a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="external">设置详情</a>(嘿嘿~~ 此处有Hexo的官方设置文档,非常详尽哦!)</p>
 <p>基础配置:打开文件位置ijobs.github.io/_config.yml修改相应的键值对即可:</p>
 <p>此处贴出我的简单设置,仅供参考:</p>
-<p><img src="../uploads/freeBlog/5.png" alt="我的Hexo配置图"></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/5.png" alt="我的Hexo配置图"></p>
 <p>(嘿嘿~~ 配置的键值对之间一定要有空格哦!)</p>
 <h4 id="3-3-写文章"><a href="#3-3-写文章" class="headerlink" title="3.3 写文章"></a>3.3 写文章</h4><p>所有的基础框架都已经创建完成,接下来就可以开始写你的第一篇博客了,在ijobs.github.io/source/_posts下创建你的第一个博客吧!</p>
 <p>例如,你可以创建一个名为FirstBlog.md的文件(可能你现在需要学习一些<a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="external">MarkDown的基本语法</a>了,但不用怕,真的很好上手哦!)</p>
-<p><img src="../uploads/freeBlog/6.png" alt="FirstBlog"></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/5.png" alt="FirstBlog"></p>
 <h4 id="3-4-测试"><a href="#3-4-测试" class="headerlink" title="3.4 测试"></a>3.4 测试</h4><p><code>$ hexo s</code></p>
 <p>测试服务启动,你可以在浏览器中输入 <a href="https://localhost:4000" target="_blank" rel="external">https://localhost:4000</a> 进行访问了.</p>
 <p>当如下页面跳出来的那一刻是不是很欣喜呢!</p>
-<p><img src="../uploads/freeBlog/7.png" alt="ijobs的二次元"></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/7.png" alt="ijobs的二次元"></p>
 <h4 id="3-4-安装-hexo-deployer-git-自动部署发布工具"><a href="#3-4-安装-hexo-deployer-git-自动部署发布工具" class="headerlink" title="3.4 安装[hexo-deployer-git]自动部署发布工具"></a>3.4 安装[hexo-deployer-git]自动部署发布工具</h4><p><code>$ npm install hexo-deployer-git --save</code></p>
 <p>(哎!在这里没少耽搁时间,不过功夫不负有心人,最终安装成功,如果由于网速或其他什么原因第一次未能安装成功,不用怕,重复执行上面的代码,总会成功的!)</p>
 <h4 id="3-5-发布"><a href="#3-5-发布" class="headerlink" title="3.5 发布"></a>3.5 发布</h4><p>测试成功后,就可以生成静态网页文件发布至我们的Github pages中.</p>
 <p><code>$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p>
 <p>此时终端会让你输入Github的邮箱和密码,正确输入后,稍等片刻,就会把你的博客上传至Github了.以后每次写完博客,执行上面的命令就可以直接发布了,是不是非常的方便啊!</p>
-<p>你可能需要的:<br><img src="../uploads/freeBlog/10.png" alt=""></p>
-<p>输入弹框:<br><img src="../uploads/freeBlog/8.png" alt=""><br><img src="../uploads/freeBlog/9.png" alt=""></p>
+<p>你可能需要的:<br><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/10.png" alt=""></p>
+<p>输入弹框:<br><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/8.png" alt=""><br><img src="http://oa73ldmzy.bkt.clouddn.com/blog/freeBlog/9.png" alt=""></p>
 <h4 id="3-6-访问博客"><a href="#3-6-访问博客" class="headerlink" title="3.6 访问博客"></a>3.6 访问博客</h4><p>那就直接在浏览器中输入 <a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a> 吧,会有你想看到的哦!</p>
 
           
@@ -387,7 +712,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

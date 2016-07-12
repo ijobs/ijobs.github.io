@@ -1,0 +1,567 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近在知乎上看到一个关于网站图片优化的问题,看到一个叫秦墨鱼的回答,深深感受到前端知识的深度,也越来越感受到前端的魅力,现在将图片优化的一些技术记录如下:(期待以后的自己也能够跟随前辈们的脚步,建成自己的前端知识库~~)
+前端图片优化方案(以淘宝网站来做案例分析)
+1. 使用base64编码代替图片场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端图片优化技术汇总">
+<meta property="og:url" content="http://yoursite.com/2016/05/19/OptimizeImage/index.html">
+<meta property="og:site_name" content="Ijobs 的二次元">
+<meta property="og:description" content="最近在知乎上看到一个关于网站图片优化的问题,看到一个叫秦墨鱼的回答,深深感受到前端知识的深度,也越来越感受到前端的魅力,现在将图片优化的一些技术记录如下:(期待以后的自己也能够跟随前辈们的脚步,建成自己的前端知识库~~)
+前端图片优化方案(以淘宝网站来做案例分析)
+1. 使用base64编码代替图片场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面">
+<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/1.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/2.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/3.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/4.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/5.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/6.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/7.png">
+<meta property="og:updated_time" content="2016-05-19T03:44:41.578Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端图片优化技术汇总">
+<meta name="twitter:description" content="最近在知乎上看到一个关于网站图片优化的问题,看到一个叫秦墨鱼的回答,深深感受到前端知识的深度,也越来越感受到前端的魅力,现在将图片优化的一些技术记录如下:(期待以后的自己也能够跟随前辈们的脚步,建成自己的前端知识库~~)
+前端图片优化方案(以淘宝网站来做案例分析)
+1. 使用base64编码代替图片场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面">
+<meta name="twitter:image" content="http://yoursite.com/../uploads/OptimizeImage/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 前端图片优化技术汇总 | Ijobs 的二次元 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ijobs 的二次元</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端图片优化技术汇总
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-19T10:18:31+08:00" content="2016-05-19">
+              2016-05-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在知乎上看到一个关于网站图片优化的问题,看到一个叫秦墨鱼的<a href="http://https://www.zhihu.com/question/33309032" target="_blank" rel="external">回答</a>,深深感受到前端知识的深度,也越来越感受到前端的魅力,现在将图片优化的一些技术记录如下:<br>(期待以后的自己也能够跟随前辈们的脚步,建成自己的前端知识库~~)</p>
+<h2 id="前端图片优化方案"><a href="#前端图片优化方案" class="headerlink" title="前端图片优化方案"></a>前端图片优化方案</h2><p>(以淘宝网站来做案例分析)</p>
+<h3 id="1-使用base64编码代替图片"><a href="#1-使用base64编码代替图片" class="headerlink" title="1. 使用base64编码代替图片"></a>1. 使用base64编码代替图片</h3><p>场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面上引用图片总数不多的情况。</p>
+<p><img src="../uploads/OptimizeImage/1.png" alt=""></p>
+<h3 id="2-合并图片sprite-图片精灵"><a href="#2-合并图片sprite-图片精灵" class="headerlink" title="2. 合并图片sprite(图片精灵)"></a>2. 合并图片sprite(图片精灵)</h3><p>场景：将多个页面上用到的背景图片合并成一个大的图片在页面中引用 ，可以有效的较少请求个数。但是合并的大图也不要太大。<br>比如淘宝首页的这个sprite图片</p>
+<p><img src="../uploads/OptimizeImage/2.png" alt=""></p>
+<h3 id="3-图片延迟加载"><a href="#3-图片延迟加载" class="headerlink" title="3. 图片延迟加载"></a>3. 图片延迟加载</h3><p>场景：对应图片比较多的页面，可以考虑通过js来实现图片的延迟加载，先让一部分图片优先请求下来，当用户滚动页面的时候进一步加载图片。<br>我们看一下淘宝首页的实现，你打开chrome控制台，然后滚动页面，就会发现新的滚动就会导致大量图片的新请求</p>
+<p><img src="../uploads/OptimizeImage/3.png" alt=""></p>
+<h3 id="4-使用css、svg、canvas或iconfont代替图片"><a href="#4-使用css、svg、canvas或iconfont代替图片" class="headerlink" title="4. 使用css、svg、canvas或iconfont代替图片"></a>4. 使用css、svg、canvas或iconfont代替图片</h3><p>场景：css方式可以用来绘制相对简单的团来代替图片，一般使用before或者after伪元素来丰富图案的复杂度。使用css,svg,iconfont减少图片尺寸，请求数据少。</p>
+<p><img src="../uploads/OptimizeImage/4.png" alt=""></p>
+<h3 id="5-加载对应尺寸图片"><a href="#5-加载对应尺寸图片" class="headerlink" title="5. 加载对应尺寸图片"></a>5. 加载对应尺寸图片</h3><p>场景：不同终端对同一个图片需求不一样，可以根据终端加载不同的图片来节省没必要的流量 。<br>查看淘宝首页图片的网络加载，会通过<a href="http://baike.baidu.com/link?url=KX0w3g-dLR9BAzRJpdCnzSaeppm6jTq7MS8SkCIbqAPT6wR_A_dNS728Wiuuz4pIfmaA0yIyUfnfHqdntt8T-q" target="_blank" rel="external">cdn技术</a>，加上对应要加载的图片参数，比如60x60,加载需要的尺寸。</p>
+<p><img src="../uploads/OptimizeImage/5.png" alt=""></p>
+<h3 id="6-预加载"><a href="#6-预加载" class="headerlink" title="6. 预加载"></a>6. 预加载</h3><p>场景：默认情况下浏览器会对页面中和当前域名（正在浏览网页的域名）不在同一个域的域名进行预获取，并且缓存结果，这就是隐式的DNS Prefetch。如果想对页面中没有出现的域进行预获取，那么就要使用显示的DNS Prefetch了，也就是使用link标签。<br>我们在查看淘宝网的前端代码可以看到前端加上了dns-prefetch，因为前端静态资源的域名和主域名<a href="http://taobao.com不一致" target="_blank" rel="external">http://taobao.com不一致</a></p>
+<p><img src="../uploads/OptimizeImage/6.png" alt=""></p>
+<h3 id="7-更好的图片格式"><a href="#7-更好的图片格式" class="headerlink" title="7. 更好的图片格式"></a>7. 更好的图片格式</h3><p>场景：使用webp、bpg、sharpP等新图片格式来替代原始格式，这些具有更好的压缩比。<br>我们看淘宝这边，部分图片使用了webp格式，WEBP与JPG相比较，编码速度慢10倍，解码速度慢1.5倍，而绝大部分的网络应用中，图片都是静态文件。</p>
+<p><img src="../uploads/OptimizeImage/7.png" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/11/FreeBlog/" rel="next" title="Windows 下搭建免费个人博客">
+                <i class="fa fa-chevron-left"></i> Windows 下搭建免费个人博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/19/sass/" rel="prev" title="Sass的安装与编译">
+                Sass的安装与编译 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/me.jpeg"
+               alt="Ijobs" />
+          <p class="site-author-name" itemprop="name">Ijobs</p>
+          <p class="site-description motion-element" itemprop="description">爱生活,爱前端!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端图片优化方案"><span class="nav-number">1.</span> <span class="nav-text">前端图片优化方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用base64编码代替图片"><span class="nav-number">1.1.</span> <span class="nav-text">1. 使用base64编码代替图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-合并图片sprite-图片精灵"><span class="nav-number">1.2.</span> <span class="nav-text">2. 合并图片sprite(图片精灵)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-图片延迟加载"><span class="nav-number">1.3.</span> <span class="nav-text">3. 图片延迟加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用css、svg、canvas或iconfont代替图片"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用css、svg、canvas或iconfont代替图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-加载对应尺寸图片"><span class="nav-number">1.5.</span> <span class="nav-text">5. 加载对应尺寸图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-预加载"><span class="nav-number">1.6.</span> <span class="nav-text">6. 预加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-更好的图片格式"><span class="nav-number">1.7.</span> <span class="nav-text">7. 更好的图片格式</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ijobs</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
