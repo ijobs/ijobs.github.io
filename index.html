@@ -477,8 +477,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/21/autoWeb/" itemprop="url">
-                  打造一个自动化的前端项目
+                <a class="post-title-link" href="/2016/07/21/sass/" itemprop="url">
+                  Sass的安装与编译
                 </a>
               
             
@@ -521,7 +521,20 @@
       
         
           
-            
+            <p>虽然已经有了很多优秀的Sass教程,但还是想记录一下自己学习Sass之初的点滴.</p>
+<h2 id="Sass的安装"><a href="#Sass的安装" class="headerlink" title="Sass的安装"></a>Sass的安装</h2><h3 id="1-安装ruby"><a href="#1-安装ruby" class="headerlink" title="1.安装ruby"></a>1.安装ruby</h3><p>因为sass依赖于ruby环境,所以在安装sass之前必须安装ruby.<br><a href="https://www.ruby-lang.org/zh_cn/downloads/" target="_blank" rel="external">详尽的安装教程</a></p>
+<p>Window下安装ruby,直接下载<a href="">rubyinstaller.exe</a>安装就可以了.(安装非常简单,直接下一步+下一步就可以了!)</p>
+<p>测试ruby是否安装成功:</p>
+<p><code>ruby -v</code></p>
+<p>执行上面的命令,如果可以看到ruby相应的版本号,说明安装成功.</p>
+<h3 id="2-安装sass"><a href="#2-安装sass" class="headerlink" title="2.安装sass"></a>2.安装sass</h3><p>安装完ruby之后,在开始菜单中,找到刚刚安装的ruby,打开Command Prompt with ruby and Rails,如下图所示:</p>
+<p><img src="http://" alt="Command Prompt with ruby and Rails"></p>
+<p>然后直接在命令行中输入下面的命令:</p>
+<p><code>gem install sass</code></p>
+<p>最后<code>sass -v</code>来检测sass是否安装成功.同样,如果看到sass相应的版本号,说明安装成功.</p>
+<p>升级sass版本的命令如下:</p>
+<p><code>gem update sass</code></p>
+<h3 id="3-sass编译"><a href="#3-sass编译" class="headerlink" title="3.sass编译"></a>3.sass编译</h3>
           
         
       
@@ -626,7 +639,7 @@
 </li>
 </ul>
 <h4 id="可能更好的实现方式"><a href="#可能更好的实现方式" class="headerlink" title="可能更好的实现方式"></a>可能更好的实现方式</h4><p>PS:分页即列表页先加载300条,但只显示100条,这样反而让分页逻辑混乱了,还要判断分页是不是已经加载过了,而且现在的趋势是”非必要不加载”,下拉更新.图片滚动到了才加载,只要检测到用户需要这部分数据才去加载,多省宽带,所以前端分页基本上没有可以一提的优点,反而让程序逻辑多绕几个圈.</p>
-<p>以上的两个回答,个人感觉都比较认可,当然在项目中是采用前端分页还是后端分页,甚至是摈弃分页而采用”无必要不加载”的下拉更新都是要根据具体的情况来进行选择的.</p>
+<p>以上的两个回答,个人感觉都比较认可,当然在项目中是采用前端分页还是后端分页,甚至是摈弃分页而采用”无必要不加载”的下拉加载都是要根据具体的情况来进行选择的.</p>
 <p>以下是我对于以上所述方式的具体实现:</p>
 <p><a href="">前端分页Demo</a></p>
 <p><a href="">非必要不加载,下拉更新Demo</a></p>
@@ -679,8 +692,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/21/sass/" itemprop="url">
-                  Sass的安装与编译
+                <a class="post-title-link" href="/2016/07/21/autoWeb/" itemprop="url">
+                  打造一个自动化的前端项目
                 </a>
               
             
@@ -723,20 +736,7 @@
       
         
           
-            <p>虽然已经有了很多优秀的Sass教程,但还是想记录一下自己学习Sass之初的点滴.</p>
-<h2 id="Sass的安装"><a href="#Sass的安装" class="headerlink" title="Sass的安装"></a>Sass的安装</h2><h3 id="1-安装ruby"><a href="#1-安装ruby" class="headerlink" title="1.安装ruby"></a>1.安装ruby</h3><p>因为sass依赖于ruby环境,所以在安装sass之前必须安装ruby.<br><a href="https://www.ruby-lang.org/zh_cn/downloads/" target="_blank" rel="external">详尽的安装教程</a></p>
-<p>Window下安装ruby,直接下载<a href="">rubyinstaller.exe</a>安装就可以了.(安装非常简单,直接下一步+下一步就可以了!)</p>
-<p>测试ruby是否安装成功:</p>
-<p><code>ruby -v</code></p>
-<p>执行上面的命令,如果可以看到ruby相应的版本号,说明安装成功.</p>
-<h3 id="2-安装sass"><a href="#2-安装sass" class="headerlink" title="2.安装sass"></a>2.安装sass</h3><p>安装完ruby之后,在开始菜单中,找到刚刚安装的ruby,打开Command Prompt with ruby and Rails,如下图所示:</p>
-<p><img src="http://" alt="Command Prompt with ruby and Rails"></p>
-<p>然后直接在命令行中输入下面的命令:</p>
-<p><code>gem install sass</code></p>
-<p>最后<code>sass -v</code>来检测sass是否安装成功.同样,如果看到sass相应的版本号,说明安装成功.</p>
-<p>升级sass版本的命令如下:</p>
-<p><code>gem update sass</code></p>
-<h3 id="3-sass编译"><a href="#3-sass编译" class="headerlink" title="3.sass编译"></a>3.sass编译</h3>
+            
           
         
       
