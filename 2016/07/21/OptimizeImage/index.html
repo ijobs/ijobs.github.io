@@ -89,25 +89,25 @@
 1. 使用base64编码代替图片场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端图片优化技术汇总">
-<meta property="og:url" content="http://yoursite.com/2016/05/19/OptimizeImage/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/07/21/OptimizeImage/index.html">
 <meta property="og:site_name" content="Ijobs 的二次元">
 <meta property="og:description" content="最近在知乎上看到一个关于网站图片优化的问题,看到一个叫秦墨鱼的回答,深深感受到前端知识的深度,也越来越感受到前端的魅力,现在将图片优化的一些技术记录如下:(期待以后的自己也能够跟随前辈们的脚步,建成自己的前端知识库~~)
 前端图片优化方案(以淘宝网站来做案例分析)
 1. 使用base64编码代替图片场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面">
-<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/1.png">
-<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/2.png">
-<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/3.png">
-<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/4.png">
-<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/5.png">
-<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/6.png">
-<meta property="og:image" content="http://yoursite.com/../uploads/OptimizeImage/7.png">
-<meta property="og:updated_time" content="2016-05-19T03:44:41.578Z">
+<meta property="og:image" content="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage1.png">
+<meta property="og:image" content="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage2.png">
+<meta property="og:image" content="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage3.png">
+<meta property="og:image" content="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage4.png">
+<meta property="og:image" content="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage5.png">
+<meta property="og:image" content="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage6.png">
+<meta property="og:image" content="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage7.png">
+<meta property="og:updated_time" content="2016-07-21T06:35:52.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端图片优化技术汇总">
 <meta name="twitter:description" content="最近在知乎上看到一个关于网站图片优化的问题,看到一个叫秦墨鱼的回答,深深感受到前端知识的深度,也越来越感受到前端的魅力,现在将图片优化的一些技术记录如下:(期待以后的自己也能够跟随前辈们的脚步,建成自己的前端知识库~~)
 前端图片优化方案(以淘宝网站来做案例分析)
 1. 使用base64编码代替图片场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面">
-<meta name="twitter:image" content="http://yoursite.com/../uploads/OptimizeImage/1.png">
+<meta name="twitter:image" content="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage1.png">
 
 
 
@@ -257,8 +257,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-19T10:18:31+08:00" content="2016-05-19">
-              2016-05-19
+            <time itemprop="dateCreated" datetime="2016-07-21T14:32:50+08:00" content="2016-07-21">
+              2016-07-21
             </time>
           </span>
 
@@ -288,19 +288,19 @@
         <p>最近在知乎上看到一个关于网站图片优化的问题,看到一个叫秦墨鱼的<a href="http://https://www.zhihu.com/question/33309032" target="_blank" rel="external">回答</a>,深深感受到前端知识的深度,也越来越感受到前端的魅力,现在将图片优化的一些技术记录如下:<br>(期待以后的自己也能够跟随前辈们的脚步,建成自己的前端知识库~~)</p>
 <h2 id="前端图片优化方案"><a href="#前端图片优化方案" class="headerlink" title="前端图片优化方案"></a>前端图片优化方案</h2><p>(以淘宝网站来做案例分析)</p>
 <h3 id="1-使用base64编码代替图片"><a href="#1-使用base64编码代替图片" class="headerlink" title="1. 使用base64编码代替图片"></a>1. 使用base64编码代替图片</h3><p>场景：将图片转换为base64编码字符串inline到页面或css中，适用于图片大小小于2KB，页面上引用图片总数不多的情况。</p>
-<p><img src="../uploads/OptimizeImage/1.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage1.png" alt=""></p>
 <h3 id="2-合并图片sprite-图片精灵"><a href="#2-合并图片sprite-图片精灵" class="headerlink" title="2. 合并图片sprite(图片精灵)"></a>2. 合并图片sprite(图片精灵)</h3><p>场景：将多个页面上用到的背景图片合并成一个大的图片在页面中引用 ，可以有效的较少请求个数。但是合并的大图也不要太大。<br>比如淘宝首页的这个sprite图片</p>
-<p><img src="../uploads/OptimizeImage/2.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage2.png" alt=""></p>
 <h3 id="3-图片延迟加载"><a href="#3-图片延迟加载" class="headerlink" title="3. 图片延迟加载"></a>3. 图片延迟加载</h3><p>场景：对应图片比较多的页面，可以考虑通过js来实现图片的延迟加载，先让一部分图片优先请求下来，当用户滚动页面的时候进一步加载图片。<br>我们看一下淘宝首页的实现，你打开chrome控制台，然后滚动页面，就会发现新的滚动就会导致大量图片的新请求</p>
-<p><img src="../uploads/OptimizeImage/3.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage3.png" alt=""></p>
 <h3 id="4-使用css、svg、canvas或iconfont代替图片"><a href="#4-使用css、svg、canvas或iconfont代替图片" class="headerlink" title="4. 使用css、svg、canvas或iconfont代替图片"></a>4. 使用css、svg、canvas或iconfont代替图片</h3><p>场景：css方式可以用来绘制相对简单的团来代替图片，一般使用before或者after伪元素来丰富图案的复杂度。使用css,svg,iconfont减少图片尺寸，请求数据少。</p>
-<p><img src="../uploads/OptimizeImage/4.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage4.png" alt=""></p>
 <h3 id="5-加载对应尺寸图片"><a href="#5-加载对应尺寸图片" class="headerlink" title="5. 加载对应尺寸图片"></a>5. 加载对应尺寸图片</h3><p>场景：不同终端对同一个图片需求不一样，可以根据终端加载不同的图片来节省没必要的流量 。<br>查看淘宝首页图片的网络加载，会通过<a href="http://baike.baidu.com/link?url=KX0w3g-dLR9BAzRJpdCnzSaeppm6jTq7MS8SkCIbqAPT6wR_A_dNS728Wiuuz4pIfmaA0yIyUfnfHqdntt8T-q" target="_blank" rel="external">cdn技术</a>，加上对应要加载的图片参数，比如60x60,加载需要的尺寸。</p>
-<p><img src="../uploads/OptimizeImage/5.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage5.png" alt=""></p>
 <h3 id="6-预加载"><a href="#6-预加载" class="headerlink" title="6. 预加载"></a>6. 预加载</h3><p>场景：默认情况下浏览器会对页面中和当前域名（正在浏览网页的域名）不在同一个域的域名进行预获取，并且缓存结果，这就是隐式的DNS Prefetch。如果想对页面中没有出现的域进行预获取，那么就要使用显示的DNS Prefetch了，也就是使用link标签。<br>我们在查看淘宝网的前端代码可以看到前端加上了dns-prefetch，因为前端静态资源的域名和主域名<a href="http://taobao.com不一致" target="_blank" rel="external">http://taobao.com不一致</a></p>
-<p><img src="../uploads/OptimizeImage/6.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage6.png" alt=""></p>
 <h3 id="7-更好的图片格式"><a href="#7-更好的图片格式" class="headerlink" title="7. 更好的图片格式"></a>7. 更好的图片格式</h3><p>场景：使用webp、bpg、sharpP等新图片格式来替代原始格式，这些具有更好的压缩比。<br>我们看淘宝这边，部分图片使用了webp格式，WEBP与JPG相比较，编码速度慢10倍，解码速度慢1.5倍，而绝大部分的网络应用中，图片都是静态文件。</p>
-<p><img src="../uploads/OptimizeImage/7.png" alt=""></p>
+<p><img src="http://oa73ldmzy.bkt.clouddn.com/blog/OptimizeImage7.png" alt=""></p>
 
       
     </div>
@@ -325,16 +325,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/11/FreeBlog/" rel="next" title="Windows 下搭建免费个人博客">
-                <i class="fa fa-chevron-left"></i> Windows 下搭建免费个人博客
+              <a href="/2016/07/21/autoWeb/" rel="next" title="打造一个自动化的前端项目">
+                <i class="fa fa-chevron-left"></i> 打造一个自动化的前端项目
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/19/sass/" rel="prev" title="Sass的安装与编译">
-                Sass的安装与编译 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/21/page/" rel="prev" title="前端分页和后端分页的优缺点及相关实现">
+                前端分页和后端分页的优缺点及相关实现 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -395,7 +395,7 @@
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/uploads/me.jpeg"
+               src="http://oa73ldmzy.bkt.clouddn.com/me.jpeg"
                alt="Ijobs" />
           <p class="site-author-name" itemprop="name">Ijobs</p>
           <p class="site-description motion-element" itemprop="description">爱生活,爱前端!</p>
